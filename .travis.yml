@@ -1,0 +1,17 @@
+language: shell
+os:
+  - linux
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gfortran-7
+before_script:
+  - make 
+script:
+  - ./hello
+notifications:
+  email: false
+after_success:
