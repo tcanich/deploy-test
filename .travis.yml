@@ -12,14 +12,17 @@ before_script:
   - make 
 script:
   - ./hello
-  - tar cJvf hello-$TRAVIS_TAG*.tar.xz hello
 notifications:
   email: false
 after_success:
+before_deploy:
+  - mkdir hello-$TRAVIS_TAG
+  - mv hello hello-$TRAVIS_TAG
+  - tar cJvf hello-$TRAVIS_TAG.tar.xz hello-$TRAVIS_TAG
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: hello-$TRAVIS_TAG*.tar.xz
+  file: hello-$TRAVIS_TAG.tar.xz
   skip_cleanup: true
   on:
     branch: main
