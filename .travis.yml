@@ -50,6 +50,7 @@ addons:
 
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export FC=gfortran-7; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export FC=gfortran; fi
   - make 
 
 script:
