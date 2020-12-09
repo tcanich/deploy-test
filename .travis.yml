@@ -20,7 +20,8 @@ before_install:
       $msys2 pacman --sync --noconfirm --needed base-devel
       $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-toolchain
       $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-gcc
-      $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-make
+# Make included in base-devel
+#      $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-make
       $msys2 pacman --sync --noconfirm --needed zip 
       taskkill //IM gpg-agent.exe //F  # https://travis-ci.community/t/4967
       export PATH=/C/tools/msys64/mingw64/bin:$PATH
@@ -49,8 +50,8 @@ addons:
       - gfortran-7
 
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export FC=gfortran-7; make; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export FC=gfortran; $mingw64 make; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make FC=gfortran-7; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then $mingw64 make FC=gfortran; fi
 
 script:
   - ./hello

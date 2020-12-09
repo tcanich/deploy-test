@@ -1,4 +1,4 @@
-FC=gfortran-7
+FC=gfortran
 CFLAGS=-static
 LDFLAGS=
 LIBS=
