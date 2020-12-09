@@ -49,9 +49,8 @@ addons:
       - gfortran-7
 
 before_script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export FC=gfortran-7; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export FC=gfortran; fi
-  - make 
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export FC=gfortran-7; make; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then export FC=gfortran; $mingw64 make fi
 
 script:
   - ./hello
@@ -65,7 +64,7 @@ before_deploy:
   - mkdir hello-$TRAVIS_TAG
   - mv hello hello-$TRAVIS_TAG
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tar cJvf hello-$TRAVIS_TAG.tar.xz hello-$TRAVIS_TAG; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then zip hello-$TRAVIS_TAG.zip hello-$TRAVIS_TAG; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then $mingw64 zip hello-$TRAVIS_TAG.zip hello-$TRAVIS_TAG; fi
 
 deploy:
   provider: releases
