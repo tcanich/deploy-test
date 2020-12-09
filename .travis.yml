@@ -20,8 +20,6 @@ before_install:
       $msys2 pacman --sync --noconfirm --needed base-devel
       $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-toolchain
       $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-gcc
-# Make included in base-devel
-#      $msys2 pacman --sync --noconfirm --needed mingw-w64-x86_64-make
       $msys2 pacman --sync --noconfirm --needed zip 
       taskkill //IM gpg-agent.exe //F  # https://travis-ci.community/t/4967
       export PATH=/C/tools/msys64/mingw64/bin:$PATH
