@@ -73,11 +73,11 @@ before_deploy:
 
 deploy:
   provider: releases
-  api_key: $GITHUB_TOKEN
+  token: $GITHUB_TOKEN
   file: 
     - hello-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.tar.xz
     - hello-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH-$TRAVIS_TAG.zip
-  skip_cleanup: true
+  cleanup: false
   on:
     branch: main
     tags: true
