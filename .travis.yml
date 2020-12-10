@@ -1,6 +1,7 @@
 language: shell
 os:
   - linux
+  - osx
   - windows
 
 dist: "xenial"
