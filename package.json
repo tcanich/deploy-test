@@ -1,0 +1,19 @@
+{
+  "name": "deploy-test",
+  "version": "0.1.13",
+  "description": "GitHub/Travis CI deployment test project"
+  "main": "hello",
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tcanich/deploy-test"
+  },
+  "author": "Tom Canich <tom@canich.net>",
+  "license": "MIT",
+  "dependencies": {
+    "tcanich/compare": "^1.0.1"
+  }
+}
+
